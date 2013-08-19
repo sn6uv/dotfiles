@@ -32,3 +32,7 @@ SAVEHIST=5000
 
 setopt NOCHECKJOBS          # don't ask about jobs in background
 setopt NOHUP                # and don't kill them either
+
+# Keybindings
+bindkey '\e[3~' delete-char
+bindkey '^R' history-incremental-search-backward
