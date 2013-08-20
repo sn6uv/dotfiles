@@ -34,5 +34,8 @@ setopt NOCHECKJOBS          # don't ask about jobs in background
 setopt NOHUP                # and don't kill them either
 
 # Keybindings
+bindkey -e
 bindkey '\e[3~' delete-char
 bindkey '^R' history-incremental-search-backward
+bindkey ';5D' backward-word
+bindkey ';5C' forward-word
