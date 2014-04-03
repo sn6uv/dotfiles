@@ -1,4 +1,9 @@
+"
+"   .vimrc
+"
+
 runtime! debian.vim
+runtime! archlinux.vim
 
 if has("syntax")
   syntax on
@@ -11,6 +16,10 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
+set t_Co=256        " 256 colours
+set nocompatible
+set mouse=a
+colorscheme torte
 set showmatch		" Show matching brackets.
 set incsearch		" Incremental search
 
@@ -24,8 +33,8 @@ au BufRead /tmp/mutt-* set tw=72
 
 set grepprg=grep\ -nH\ $*
 
-map <F8> :w<CR>:!pdflatex %<CR>
-imap <F8> :w<CR>:!pdflatex %<CR>
+let g:tex_flavor='latex'
 
-map <F9> :w<CR>:make<CR>
-imap <F9> :w<CR>:make<CR>
+map <F8> :w<CR>:make<CR><CR><CR>
+map <F9> :w<CR>:!pdflatex %<CR>
+map <F10> :w<CR>:!evince %<.pdf &<CR>

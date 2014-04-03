@@ -1,0 +1,39 @@
+!
+!   .Xdefaults
+!
+
+! Size
+xterm*vt100*geometry: 80x32
+
+! Border Settings
+xterm*border: grey
+XTerm*borderwidth: 10
+XTerm*internalBorder: 5
+
+! Colours 
+xterm*background: #020202
+xterm*foreground: #dcdccc
+xterm*pointerColor: black
+xterm*pointerColorBackground: grey
+xterm*pointerShape: XTerm
+xterm*cursorColor: green
+
+! Other Settings
+xterm*loginShell: true
+xterm*scrollBar: false
+xterm*scrollKey: true
+xterm*saveLines: 5000
+xterm*multiClickTime: 250 
+
+! Fonts
+xterm*faceName: Bitstream Vera Serif Mono 
+xterm*faceSize: 10
+
+xterm*font: -*-fixed-medium-r-*-*-18-*-*-*-*-*-iso8859-*
+xterm*font1: -*-fixed-medium-r-*-*-12-*-*-*-*-*-iso8859-*
+xterm*font2: -*-fixed-medium-r-*-*-14-*-*-*-*-*-iso8859-*
+xterm*font3: -*-fixed-medium-r-*-*-16-*-*-*-*-*-iso8859-*
+xterm*font4: -*-fixed-medium-r-*-*-20-*-*-*-*-*-iso8859-*
+xterm*font5: -*-fixed-medium-r-*-*-22-*-*-*-*-*-iso8859-*
+xterm*font6: -*-fixed-medium-r-*-*-26-*-*-*-*-*-iso8859-*
+xterm*font7: -dec-terminal-bold-r-normal-*-14-*-*-*-*-*-iso8859-*
