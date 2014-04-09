@@ -9,14 +9,17 @@ if has("syntax")
   syntax on
 endif
 
+" Colours
+set t_Co=256        " 256 colours
 set background=dark
+colorscheme torte
+highlight Normal ctermbg=None ctermfg=None
 
 " Have Vim jump to the last position when reopening a file
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
-set t_Co=256        " 256 colours
 set nocompatible
 set mouse=a
 colorscheme torte
