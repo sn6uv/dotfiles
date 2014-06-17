@@ -10,10 +10,8 @@ if has("syntax")
 endif
 
 " Colours
-set t_Co=256        " 256 colours
+colorscheme ansi_blows
 set background=dark
-colorscheme torte
-highlight Normal ctermbg=None ctermfg=None
 
 " Have Vim jump to the last position when reopening a file
 if has("autocmd")
@@ -22,7 +20,7 @@ endif
 
 set nocompatible
 set mouse=a
-colorscheme torte
+set mousehide
 set showmatch		" Show matching brackets.
 set incsearch		" Incremental search
 
@@ -36,8 +34,29 @@ au BufRead /tmp/mutt-* set tw=72
 
 set grepprg=grep\ -nH\ $*
 
-let g:tex_flavor='latex'
+function F9()
+   w
+   if getcwd() == '/home/angus/thesis'
+      echom "thesis"
+      !make
+    else
+      echom "not thesis"
+      cd %:h
+      !pdflatex % -file-line-error
+      cd -
+   endif
+endfunction
 
-map <F8> :w<CR>:make<CR><CR><CR>
-map <F9> :w<CR>:!pdflatex %<CR>
-map <F10> :w<CR>:!evince %<.pdf &<CR>
+function F10()
+   if getcwd() == '/home/angus/thesis'
+      !make view
+    else
+      evince %:r.pdf &
+    endif
+endfunction
+
+map <F8> :w<CR>:!make<CR><CR>
+map <F9> :call F9()<CR>
+imap <F9> <Esc>:call F9()<CR>a
+map <F10> :call F10()<CR>
+imap <F10> <Esc>:call F10()<CR>a
