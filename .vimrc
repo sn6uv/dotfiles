@@ -37,12 +37,10 @@ set grepprg=grep\ -nH\ $*
 function F9()
    w
    if getcwd() == '/home/angus/thesis'
-      echom "thesis"
       !make
-    else
-      echom "not thesis"
+    elseif expand("%:e") == "tex"
       cd %:h
-      !pdflatex % -file-line-error
+      !pdflatex -file-line-error %
       cd -
    endif
 endfunction
@@ -50,12 +48,12 @@ endfunction
 function F10()
    if getcwd() == '/home/angus/thesis'
       !make view
-    else
-      evince %:r.pdf &
+    elseif expand("%:e") == "tex"
+      !evince %:r.pdf &
     endif
 endfunction
 
-map <F8> :w<CR>:!make<CR><CR>
+map <F8> :w<CR>:!make<CR>
 map <F9> :call F9()<CR>
 imap <F9> <Esc>:call F9()<CR>a
 map <F10> :call F10()<CR>
