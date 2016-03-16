@@ -28,33 +28,27 @@ set incsearch		" Incremental search
 set tabstop=4
 set shiftwidth=4
 set expandtab
-
-" Limit linewidth of text to 72 characters in mutt
-au BufRead /tmp/mutt-* set tw=72
-
 set grepprg=grep\ -nH\ $*
 
 function F9()
-   w
-   if getcwd() == '/home/angus/thesis'
-      !make
-    elseif expand("%:e") == "tex"
-      cd %:h
+  if expand("%:e") == "tex"
+    cd %:h
       !pdflatex -file-line-error %
-      cd -
-   endif
+    cd -
+  endif
 endfunction
 
 function F10()
-   if getcwd() == '/home/angus/thesis'
-      !make view
-    elseif expand("%:e") == "tex"
-      !evince %:r.pdf &
-    endif
+  if expand("%:e") == "tex"
+    !evince %:r.pdf &
+  endif
 endfunction
 
 map <F8> :w<CR>:!make<CR>
+imap <F8> <Esc>:w<CR>:!make<CR>a
+
 map <F9> :call F9()<CR>
 imap <F9> <Esc>:call F9()<CR>a
+
 map <F10> :call F10()<CR>
 imap <F10> <Esc>:call F10()<CR>a
